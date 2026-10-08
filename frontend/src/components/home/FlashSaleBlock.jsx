@@ -1,0 +1,1 @@
+import ProductGrid from '../product/ProductGrid.jsx';export default function FlashSaleBlock({items=[]}){return <section className="py-6"><div className="flex justify-between mb-3"><h2 className="text-xl font-extrabold">Flash sale</h2><span className="text-xs text-red-600 font-bold">Limited time</span></div><ProductGrid items={items}/></section>}

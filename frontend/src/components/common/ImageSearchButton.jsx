@@ -1,0 +1,1 @@
+export default function ImageSearchButton({onFile=()=>{}}){return <label className="border rounded-lg px-3 py-2 text-sm cursor-pointer">📷 Image search<input type="file" accept="image/*" className="hidden" onChange={e=>e.target.files[0]&&onFile(e.target.files[0])}/></label>}

@@ -1,0 +1,1 @@
+import api from './axiosClient';const unwrap=p=>p.then(r=>r.data.data);export const getReviews=(id)=>unwrap(api.get(`/products/${id}/reviews`));export const addReview=(body)=>unwrap(api.post('/reviews',body));

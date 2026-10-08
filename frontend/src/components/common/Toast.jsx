@@ -1,0 +1,1 @@
+export default function Toast({message,onClose}){if(!message)return null;return <div className="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex gap-3 items-center">{message}{onClose&&<button onClick={onClose}>×</button>}</div>}

@@ -1,0 +1,1 @@
+export default function RatingStars({rating=0}){const n=Math.round(Number(rating));return <span aria-label={`${rating} out of 5 stars`} className="text-amber-500 tracking-tight">{'★'.repeat(n)}{'☆'.repeat(Math.max(0,5-n))}</span>}

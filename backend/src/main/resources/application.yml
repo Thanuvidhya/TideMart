@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: tidemart
+  datasource:
+    url: jdbc:mysql://localhost:3306/tidemart_db?useSSL=false&serverTimezone=Asia/Kolkata
+    username: root
+    password: Thanu@769
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQLDialect
+  servlet:
+    multipart:
+      max-file-size: 10MB
+server:
+  port: 8080
+tidemart:
+  jwt-secret: ${JWT_SECRET:change-this-secret-to-a-long-random-string-123456}
+  upload-dir: uploads
+  demo-otp: true
+  auto-approve: true

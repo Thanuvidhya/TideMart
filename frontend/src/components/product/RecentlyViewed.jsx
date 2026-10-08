@@ -1,0 +1,1 @@
+import ProductGrid from './ProductGrid.jsx';export default function RecentlyViewed({items=[]}){return items.length?<section className="mt-8"><h2 className="text-xl font-extrabold mb-3">Recently viewed</h2><ProductGrid items={items}/></section>:null}

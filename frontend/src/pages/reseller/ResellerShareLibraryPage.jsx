@@ -1,0 +1,1 @@
+import ResellerLayout from '../../layouts/ResellerLayout.jsx';export default function ResellerShareLibraryPage(){return <ResellerLayout title="Share library"><div className="bg-white border rounded-2xl p-5 text-slate-600">Select products in the reseller catalogue and use the Share button to create WhatsApp-ready links.</div></ResellerLayout>}

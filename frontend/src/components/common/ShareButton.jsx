@@ -1,0 +1,1 @@
+export default function ShareButton({title='TideMart',url=window.location.href}){return <button className="border rounded-lg px-3 py-2 text-sm" onClick={()=>navigator.share?navigator.share({title,url}):navigator.clipboard?.writeText(url)}>Share</button>}

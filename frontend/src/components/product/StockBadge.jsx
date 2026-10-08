@@ -1,0 +1,1 @@
+export default function StockBadge({stock}){if(stock==null)return null;return <span className={`text-xs font-bold ${stock<=5?'text-red-600':'text-emerald-700'}`}>{stock<=5?`Only ${stock} left`:'In stock'}</span>}

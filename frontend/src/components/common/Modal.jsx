@@ -1,0 +1,1 @@
+export default function Modal({open,onClose,children,title}){if(!open)return null;return <div className="fixed inset-0 z-50 bg-black/30 grid place-items-center p-4" onClick={onClose}><div className="bg-white rounded-2xl p-5 max-w-lg w-full" onClick={e=>e.stopPropagation()}>{title&&<h2 className="font-bold text-lg mb-3">{title}</h2>}{children}</div></div>}

@@ -1,0 +1,25 @@
+export const PHOTO_ASSETS={
+  women:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=82',
+  men:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=82',
+  kids:'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=900&q=82',
+  home:'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=900&q=82',
+  beauty:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=82',
+  footwear:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=82',
+  jewellery:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=82',
+  electronics:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=82',
+  shirt:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=82',
+  sneakers:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=82',
+  campaign:'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1800&q=84',
+  women2:'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=82',
+  shirt2:'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=82',
+  footwear:'https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=82',
+  beauty2:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=82',
+  kids2:'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=82',
+  home2:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=82',
+  home3:'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=900&q=82',
+  jewellery2:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=82',
+  electronics2:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=82',
+  electronics3:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=82',
+};
+export function photoSetForProduct(p={}){const s=`${p.name||''} ${p.categoryName||p.category||''}`.toLowerCase(); if(/shoe|sneaker|footwear|sandals|slipper/.test(s))return [PHOTO_ASSETS.sneakers,PHOTO_ASSETS.footwear,PHOTO_ASSETS.men]; if(/beauty|lipstick|cream|makeup|skin|hair/.test(s))return [PHOTO_ASSETS.beauty,PHOTO_ASSETS.beauty2,PHOTO_ASSETS.women]; if(/kids|child|baby/.test(s))return [PHOTO_ASSETS.kids,PHOTO_ASSETS.kids2,PHOTO_ASSETS.women]; if(/home|kitchen|mug|bed|decor/.test(s))return [PHOTO_ASSETS.home,PHOTO_ASSETS.home2,PHOTO_ASSETS.home3]; if(/jewel|ring|earring|necklace/.test(s))return [PHOTO_ASSETS.jewellery,PHOTO_ASSETS.jewellery2,PHOTO_ASSETS.women]; if(/phone|laptop|electronic|watch/.test(s))return [PHOTO_ASSETS.electronics,PHOTO_ASSETS.electronics2,PHOTO_ASSETS.electronics3]; if(/shirt|men|jeans/.test(s))return [PHOTO_ASSETS.shirt,PHOTO_ASSETS.men,PHOTO_ASSETS.shirt2]; return [PHOTO_ASSETS.women,PHOTO_ASSETS.women2,PHOTO_ASSETS.campaign];}
+export function photoForProduct(p={}){const s=`${p.name||''} ${p.categoryName||p.category||''}`.toLowerCase(); if(/shoe|sneaker|footwear|sandals|slipper/.test(s))return PHOTO_ASSETS.sneakers; if(/beauty|lipstick|cream|makeup|skin|hair/.test(s))return PHOTO_ASSETS.beauty; if(/kids|child|baby/.test(s))return PHOTO_ASSETS.kids; if(/home|kitchen|mug|bed|decor/.test(s))return PHOTO_ASSETS.home; if(/jewel|ring|earring|necklace/.test(s))return PHOTO_ASSETS.jewellery; if(/phone|laptop|electronic|watch/.test(s))return PHOTO_ASSETS.electronics; if(/shirt|men|jeans/.test(s))return PHOTO_ASSETS.men; return PHOTO_ASSETS.women;}

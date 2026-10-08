@@ -1,0 +1,1 @@
+import {useState} from 'react';export default function CouponBox({onApply=()=>{}}){const[c,setC]=useState('');return <div className="flex gap-2"><input className="flex-1 border rounded-lg px-3 py-2" placeholder="Coupon code" value={c} onChange={e=>setC(e.target.value)}/><button className="border rounded-lg px-4" onClick={()=>onApply(c)}>Apply</button></div>}

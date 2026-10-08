@@ -1,0 +1,1 @@
+import api from './axiosClient';const unwrap=p=>p.then(r=>r.data.data);export const saveSearch=(term)=>unwrap(api.post('/search/history',null,{params:{term}}));export const history=()=>unwrap(api.get('/search/history'));export const trending=()=>unwrap(api.get('/search/trending'));

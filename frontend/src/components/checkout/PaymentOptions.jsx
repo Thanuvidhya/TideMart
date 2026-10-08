@@ -1,0 +1,1 @@
+export default function PaymentOptions({value='COD',onChange=()=>{}}){return <div className="space-y-2">{[['COD','Cash on delivery'],['UPI','UPI (demo)'],['CARD','Card (demo)'],['WALLET','Wallet']].map(([k,l])=><label key={k} className="block border rounded-xl p-3"><input type="radio" checked={value===k} onChange={()=>onChange(k)}/> {l}</label>)}</div>}

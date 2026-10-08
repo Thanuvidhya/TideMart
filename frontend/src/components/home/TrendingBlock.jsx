@@ -1,0 +1,1 @@
+import ProductGrid from '../product/ProductGrid.jsx';export default function TrendingBlock({items=[]}){return <section className="py-6"><h2 className="text-xl font-extrabold mb-3">Trending now</h2><ProductGrid items={items}/></section>}

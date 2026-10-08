@@ -1,0 +1,1 @@
+export default function AddressSelector({addresses=[],value,onChange=()=>{}}){return <div>{addresses.map(a=><label key={a.id} className={`block border rounded-xl p-3 mb-2 ${value===a.id?'border-brand':''}`}><input type="radio" checked={value===a.id} onChange={()=>onChange(a.id)}/> <b>{a.name}</b>, {a.line1}, {a.city} {a.pincode}</label>)}</div>}

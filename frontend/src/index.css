@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark body { background: #0E1519; color: #E8F0F4; }
+.dark .bg-white, .dark .bg-slate-50 { background: #162026 !important; }
+.dark .bg-orange-50 { background: #2a1a10 !important; }
+.dark .border, .dark .border-b { border-color: #26343D; }
+.dark input, .dark select, .dark textarea { background: #0E1519; color: #E8F0F4; border-color: #26343D; }
+.dark .text-slate-500, .dark .text-slate-600, .dark .text-slate-400 { color: #93A4AF; }
+
+/* TideMart marketplace UI refresh */
+.nav-action { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 48px; padding: 8px 9px; border-radius: 10px; color: #334155; font-size: 13px; font-weight: 600; transition: background .2s, color .2s; }
+.nav-action:hover { background: #f8fafc; color: #0e7c95; }
+.category-link { position: relative; padding: 13px 0; color: #475569; font-weight: 600; }
+.category-link:hover { color: #0e7c95; }
+.category-link::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 7px; height: 2px; border-radius: 999px; background: #0e7c95; transition: right .2s; }
+.category-link:hover::after { right: 0; }
+.dark .nav-action, .dark .category-link { color: #cbd5e1; }
+.dark .category-link:hover, .dark .nav-action:hover { color: #67e8f9; background: #17232a; }

@@ -1,0 +1,1 @@
+export default function OrderStatusDropdown({value,onChange=()=>{}}){return <select className='border rounded-lg px-2 py-1 text-sm' value={value||''} onChange={e=>onChange(e.target.value)}><option value=''>Status</option>{['PACKED','SHIPPED','OUT_FOR_DELIVERY','DELIVERED','CANCELLED'].map(x=><option key={x}>{x}</option>)}</select>}

@@ -1,0 +1,2 @@
+import { useEffect, useState } from 'react';
+export default function useGeolocation(){ const [state,setState]=useState({loading:true,position:null,error:null}); useEffect(()=>{ if(!navigator.geolocation){setState({loading:false,position:null,error:'Geolocation is not supported'});return;} navigator.geolocation.getCurrentPosition(p=>setState({loading:false,position:p,error:null}),e=>setState({loading:false,position:null,error:e.message}),{enableHighAccuracy:false,timeout:10000}); },[]); return state; }

@@ -1,0 +1,1 @@
+export default function TrackingTimeline({steps=[]}){return <div className='space-y-3'>{steps.map((s,i)=><div key={i} className='flex gap-3'><span className='w-7 h-7 rounded-full bg-brand text-white grid place-items-center text-xs'>{i+1}</span><div><b>{s.label||s.status}</b><p className='text-xs text-slate-500'>{s.time||s.at||''}</p></div></div>)}</div>}

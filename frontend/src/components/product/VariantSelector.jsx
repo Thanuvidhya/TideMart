@@ -1,0 +1,1 @@
+export default function VariantSelector({variants=[],value,onChange=()=>{}}){return <div className="flex flex-wrap gap-2">{variants.map(v=><button key={v.id||v.size} disabled={v.stock===0} onClick={()=>onChange(v)} className={`px-3 py-2 border rounded-lg ${value?.id===v.id?'bg-brand text-white':''} ${v.stock===0?'opacity-40':''}`}>{v.size||v.name}</button>)}</div>}

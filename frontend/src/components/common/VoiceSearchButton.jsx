@@ -1,0 +1,1 @@
+import useVoiceSearch from '../../hooks/useVoiceSearch.js';export default function VoiceSearchButton({onText}){const v=useVoiceSearch();return <button disabled={!v.supported} onClick={()=>v.start(onText)} className="border rounded-lg px-3 py-2 text-sm">{v.listening?'Listening…':'🎙 Voice'}</button>}

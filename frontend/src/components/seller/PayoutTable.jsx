@@ -1,0 +1,1 @@
+export default function PayoutTable({rows=[]}){return <div className='space-y-2'>{rows.map((r,i)=><div key={r.id||i} className='bg-white border rounded-xl p-3 flex justify-between text-sm'><span>{r.partyType||r.method||'Payout'}</span><b>₹{r.amount||0}</b></div>)}</div>}

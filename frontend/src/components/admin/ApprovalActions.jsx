@@ -1,0 +1,1 @@
+export default function ApprovalActions({onApprove=()=>{},onReject=()=>{}}){return <div className='flex gap-2'><button className='bg-emerald-600 text-white px-3 py-1 rounded-lg text-sm' onClick={onApprove}>Approve</button><button className='border border-red-300 text-red-600 px-3 py-1 rounded-lg text-sm' onClick={onReject}>Reject</button></div>}

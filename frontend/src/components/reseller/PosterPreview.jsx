@@ -1,0 +1,1 @@
+export default function PosterPreview({product}){return <div className='bg-white border rounded-2xl overflow-hidden w-64'>{product?.imageUrl&&<img src={product.imageUrl} className='w-full aspect-square object-cover'/>}<div className='p-3'><b>{product?.name||'TideMart product'}</b><p className='text-sm text-slate-500 mt-1'>Shop on TideMart</p></div></div>}

@@ -1,0 +1,1 @@
+import api from './axiosClient'; const unwrap=p=>p.then(r=>r.data.data); export const deliveryOrders=()=>unwrap(api.get('/delivery/orders')); export const deliverDelivery=(id,otp)=>unwrap(api.post(`/delivery/orders/${id}/deliver`,null,{params:{otp}})); export const failDelivery=(id,note)=>unwrap(api.post(`/delivery/orders/${id}/failed`,null,{params:{note}}));

@@ -1,0 +1,4 @@
+import { useEffect,useState } from 'react';
+import { sellerEarnings } from '../../api/sellerApi.js';
+import SellerLayout from '../../layouts/SellerLayout.jsx';
+export default function SellerEarningsPage(){const[e,setE]=useState(null);useEffect(()=>{sellerEarnings().then(setE)},[]);return <SellerLayout title="Earnings">{e&&<><div className="grid grid-cols-2 md:grid-cols-4 gap-3"><div className="bg-white border rounded-xl p-4">Delivered<br/><b>{e.deliveredOrders}</b></div><div className="bg-white border rounded-xl p-4">Gross<br/><b>₹{e.gross}</b></div><div className="bg-white border rounded-xl p-4">Commission<br/><b>₹{e.commission}</b></div><div className="bg-white border rounded-xl p-4">Net<br/><b>₹{e.net}</b></div></div>{(e.lines||[]).map((x,i)=><div key={i} className="bg-white border rounded-xl p-3 mt-2 text-sm">{x.orderNo} · {x.product} · ₹{x.net}</div>)}</>}</SellerLayout>}

@@ -1,0 +1,1 @@
+export default function SellerInfo({name='TideMart seller',rating=0}){return <div className="border rounded-xl p-4 bg-white"><b>Sold by {name}</b><p className="text-sm text-slate-500 mt-1">★ {Number(rating||0).toFixed(1)} seller rating</p></div>}

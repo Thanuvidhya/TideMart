@@ -1,0 +1,1 @@
+import Navbar from '../components/common/Navbar.jsx';import Footer from '../components/common/Footer.jsx';export default function CustomerLayout({children}){return <><Navbar/><main className='min-h-[60vh]'>{children}</main><Footer/></>}

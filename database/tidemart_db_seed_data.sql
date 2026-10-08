@@ -1,0 +1,10 @@
+USE tidemart_db;
+INSERT INTO categories (name, slug) VALUES ('Women','women'),('Men','men'),('Kids','kids'),('Home','home'),('Beauty','beauty'),('Footwear','footwear');
+INSERT INTO commission_rules (category_id, percent) SELECT id, 10 FROM categories;
+INSERT INTO serviceable_pincodes (pincode, city, state) VALUES ('560001','Bengaluru','Karnataka'),('600001','Chennai','Tamil Nadu'),('110001','New Delhi','Delhi'),('400001','Mumbai','Maharashtra'),('500001','Hyderabad','Telangana');
+INSERT INTO shipping_rules (min_order, max_order, fee) VALUES (0, 498.99, 49), (499, 999999, 0);
+INSERT INTO coupons (code, type, value, max_discount, min_order, valid_from, valid_till, usage_limit) VALUES ('TIDE10','PERCENT',10,150,0,NOW(),DATE_ADD(NOW(),INTERVAL 1 YEAR),100000),('FIRST50','FLAT',50,50,299,NOW(),DATE_ADD(NOW(),INTERVAL 1 YEAR),100000);
+INSERT INTO tax_settings (name, percent) VALUES ('GST 5%',5),('GST 12%',12);
+INSERT INTO policy_pages (slug, title, content) VALUES ('terms','Terms of use','Add your terms here.'),('privacy','Privacy policy','Add your privacy policy here.'),('returns','Return policy','7-day easy returns.');
+INSERT INTO faqs (question, answer, sort_order) VALUES ('How do I track my order?','Open Orders and tap the order.',1),('How do returns work?','Request a return within 7 days of delivery.',2),('Is cash on delivery available?','Yes, for serviceable pincodes.',3);
+INSERT INTO delivery_partners (name, phone, status) VALUES ('Demo Rider', '9000000001', 'ACTIVE');

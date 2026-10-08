@@ -1,0 +1,17 @@
+{
+  "app": "Tidemart",
+  "search": "Search kurti, shirts, sneakers",
+  "cart": "Cart",
+  "orders": "Orders",
+  "returns": "Returns",
+  "wallet": "Wallet",
+  "wishlist": "Wishlist",
+  "refer": "Refer",
+  "login": "Log in",
+  "logout": "Log out",
+  "profile": "Profile",
+  "help": "Help",
+  "alerts": "Alerts",
+  "sell": "Sell on Tidemart",
+  "resell": "Become a reseller"
+}

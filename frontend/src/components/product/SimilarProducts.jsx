@@ -1,0 +1,1 @@
+import ProductGrid from './ProductGrid.jsx';export default function SimilarProducts({items=[]}){return <section className="mt-8"><h2 className="text-xl font-extrabold mb-3">Similar products</h2><ProductGrid items={items}/></section>}
