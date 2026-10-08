@@ -2,7 +2,7 @@ spring:
   application:
     name: tidemart
 
-    datasource:
+  datasource:
     url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?sslMode=REQUIRED&serverTimezone=Asia/Kolkata
     username: ${DB_USER}
     password: ${DB_PASSWORD}
