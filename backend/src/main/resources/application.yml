@@ -1,10 +1,15 @@
 spring:
   application:
     name: tidemart
-  datasource:
-    url: jdbc:mysql://localhost:3306/tidemart_db?useSSL=false&serverTimezone=Asia/Kolkata
-    username: root
-    password: Thanu@769
+
+    datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?sslMode=REQUIRED&serverTimezone=Asia/Kolkata
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  # datasource:
+  #   url: jdbc:mysql://localhost:3306/tidemart_db?useSSL=false&serverTimezone=Asia/Kolkata
+  #   username: root
+  #   password: root
   jpa:
     hibernate:
       ddl-auto: none
