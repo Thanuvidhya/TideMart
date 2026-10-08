@@ -18,7 +18,7 @@ spring:
     multipart:
       max-file-size: 10MB
 server:
-  port: 8080
+  port: ${PORT:8080}
 tidemart:
   jwt-secret: ${JWT_SECRET:change-this-secret-to-a-long-random-string-123456}
   upload-dir: uploads
