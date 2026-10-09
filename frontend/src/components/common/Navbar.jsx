@@ -42,7 +42,7 @@ export default function Navbar() {
   useEffect(() => { if (!auth) { setUnread(0); setCartCount(0); return; } getNotifications().then((d) => setUnread(d.unread)).catch(() => {}); getCart().then((d) => setCartCount(d.items.reduce((a, i) => a + i.qty, 0))).catch(() => {}); }, [auth, loc.pathname]);
   useEffect(() => { const h = (e) => menuBox.current && !menuBox.current.contains(e.target) && setMenu(false); document.addEventListener('mousedown', h); return () => document.removeEventListener('mousedown', h); }, []);
   const go = (term) => { const value = term.trim(); if (!value) return; if (auth) saveSearch(value).catch(() => {}); setSug([]); nav(`/search?q=${encodeURIComponent(value)}`); };
-  const categoryLink = (name) => { const c = cats.find((x) => x.name?.toLowerCase() === name.toLowerCase()); return c ? `/search?category=${c.id}` : `/search?q=${encodeURIComponent(name)}`; };
+  const categoryLink = (name) => { const c = (cats || []).find((x) => x.name?.toLowerCase() === name.toLowerCase()); return c ? `/search?category=${c.id}` : `/search?q=${encodeURIComponent(name)}`; };
   const Item = ({ to, children, icon }) => <Link to={to} onClick={() => setMenu(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-slate-50"><Icon name={icon} className="w-4 h-4 text-slate-500" />{children}</Link>;
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-100 shadow-[0_1px_8px_rgba(15,23,42,.05)]">

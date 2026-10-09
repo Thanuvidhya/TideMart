@@ -38,7 +38,7 @@ export default function AdminDashboardPage() {
   const [rows, setRows] = useState([]);
   const [form, setForm] = useState({});
   const [msg, setMsg] = useState('');
-  const t = TABS.find((x) => x.k === tab);
+  const t = (TABS || []).find((x) => x.k === tab);
   const load = () => (tab === 'dashboard' ? adminStats().then(setStats) : (tab === 'fraud' ? adminFraud() : adminList(tab === 'delivery' ? 'orders' : tab)).then((r) => setRows(tab === 'delivery' ? r.filter((o) => ['SHIPPED', 'OUT_FOR_DELIVERY'].includes(o.status)) : r))).catch((e) => setMsg(e.response?.data?.message || 'Admin access needed'));
   useEffect(() => { setMsg(''); setForm({}); load(); }, [tab]);
   const run = (p) => p.then(() => { setMsg('Done'); load(); }).catch((e) => setMsg(e.response?.data?.message || 'Failed'));

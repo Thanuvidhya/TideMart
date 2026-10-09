@@ -18,7 +18,7 @@ export default function ResellerPlaceOrderPage() {
   useEffect(() => { setVid(''); if (pid) getProduct(pid).then(setDetail); }, [pid]);
   const set = (k) => (e) => setC({ ...c, [k]: e.target.value });
   const addLine = () => {
-    const v = detail?.variants.find((x) => String(x.id) === String(vid));
+    const v = (detail?.variants || []).find((x) => String(x.id) === String(vid));
     if (!v) return setMsg('Choose a size');
     setLines([...lines, { productId: detail.product.id, variantId: v.id, qty: +qty, label: `${detail.product.name} (${v.size}) x${qty}` }]);
     setMsg('');

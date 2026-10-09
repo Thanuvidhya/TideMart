@@ -26,7 +26,7 @@ export default function LocationPicker() {
     localStorage.setItem('tidemart_addr', String(a.id)); localStorage.setItem('tidemart_pin', a.pincode); window.dispatchEvent(new CustomEvent('tidemart-location',{detail:{addressId:String(a.id),pincode:a.pincode}}));
     setSelId(String(a.id)); setPin(a.pincode); setOpen(false); setMsg('');
   };
-  const current = list.find((a) => String(a.id) === selId);
+  const current = (list || []).find((a) => String(a.id) === selId);
   const label = current ? `${current.city} ${current.pincode}` : pin ? `Pincode ${pin}` : 'Select location';
   const checkTyped = () => checkPincode(typed).then((r) => {
     if (r.serviceable) { localStorage.setItem('tidemart_pin', typed); localStorage.removeItem('tidemart_addr'); setSelId(null); setPin(typed); window.dispatchEvent(new CustomEvent('tidemart-location',{detail:{addressId:null,pincode:typed}})); setMsg(`Delivery available by ${r.deliveryBy}`); }

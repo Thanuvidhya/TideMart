@@ -10,7 +10,7 @@ const addressText=a=>[a.line1,a.city,a.state,a.pincode].filter(Boolean).join(', 
 export default function CheckoutPage(){
  const nav=useNavigate(), coupon=useLocation().state?.coupon||'';
  const [addrs,setAddrs]=useState([]),[sel,setSel]=useState(null),[pay,setPay]=useState('COD'),[cart,setCart]=useState(null),[busy,setBusy]=useState(false),[err,setErr]=useState('');
- const load=()=>listAddresses().then(l=>{setAddrs(l);const stored=localStorage.getItem('tidemart_addr');const chosen=l.find(a=>String(a.id)===stored)||l.find(a=>a.isDefault)||l[0];if(chosen){setSel(chosen.id);localStorage.setItem('tidemart_addr',String(chosen.id));localStorage.setItem('tidemart_pin',chosen.pincode)}});
+ const load=()=>listAddresses().then(l=>{setAddrs(l);const stored=localStorage.getItem('tidemart_addr');const chosen=(l||[]).find(a=>String(a.id)===stored)||(l||[]).find(a=>a.isDefault)||l[0];if(chosen){setSel(chosen.id);localStorage.setItem('tidemart_addr',String(chosen.id));localStorage.setItem('tidemart_pin',chosen.pincode)}});
  useEffect(()=>{load()},[]); useEffect(()=>{getCart(coupon,pay).then(setCart).catch(()=>{})},[pay,coupon]);
  const choose=a=>{setSel(a.id);localStorage.setItem('tidemart_addr',String(a.id));localStorage.setItem('tidemart_pin',a.pincode);window.dispatchEvent(new CustomEvent('tidemart-location',{detail:{addressId:String(a.id),pincode:a.pincode}}));};
  const place=async()=>{setErr('');if(!sel)return setErr('Choose a delivery address');setBusy(true);try{const o=await placeOrder({addressId:sel,paymentMethod:pay,coupon,demoPaymentOk:true});nav(`/orders/${o.id}`)}catch(e){setErr(e.response?.data?.message||'Could not place order')}finally{setBusy(false)}};
