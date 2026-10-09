@@ -38,7 +38,7 @@ export default function Navbar() {
   const [cartCount, setCartCount] = useState(0);
   const [menu, setMenu] = useState(false);
   useEffect(() => { getCategories().then(setCats).catch(() => {}); }, []);
-  useEffect(() => { if (q.length < 2) return setSug([]); const id = setTimeout(() => suggest(q).then(setSug).catch(() => setSug([])), 250); return () => clearTimeout(id); }, [q]);
+  useEffect(() => { if ((q?.length || 0) < 2) return setSug([]); const id = setTimeout(() => suggest(q).then(setSug).catch(() => setSug([])), 250); return () => clearTimeout(id); }, [q]);
   useEffect(() => { if (!auth) { setUnread(0); setCartCount(0); return; } getNotifications().then((d) => setUnread(d.unread)).catch(() => {}); getCart().then((d) => setCartCount(d.items.reduce((a, i) => a + i.qty, 0))).catch(() => {}); }, [auth, loc.pathname]);
   useEffect(() => { const h = (e) => menuBox.current && !menuBox.current.contains(e.target) && setMenu(false); document.addEventListener('mousedown', h); return () => document.removeEventListener('mousedown', h); }, []);
   const go = (term) => { const value = term.trim(); if (!value) return; if (auth) saveSearch(value).catch(() => {}); setSug([]); nav(`/search?q=${encodeURIComponent(value)}`); };
@@ -56,7 +56,7 @@ export default function Navbar() {
             <input aria-label="Search products" className="w-full bg-transparent border-0 outline-none px-3 py-3 text-sm" placeholder="Search for products, brands and more" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && go(q)} />
             {voice.supported && <button type="button" aria-label="Search by voice" className={`mr-3 ${voice.listening ? 'text-red-600' : 'text-brand'}`} onClick={() => voice.start((txt) => { setQ(txt); go(txt); })}><Icon name="mic" /></button>}
           </div>
-          {sug.length > 0 && <div className="absolute left-0 right-0 top-full mt-2 bg-white border border-slate-100 rounded-xl shadow-xl overflow-hidden z-50">{sug.map((s) => <button key={s} className="block w-full text-left px-4 py-3 text-sm hover:bg-slate-50" onClick={() => go(s)}>{s}</button>)}</div>}
+          {(sug?.length > 0) && <div className="absolute left-0 right-0 top-full mt-2 bg-white border border-slate-100 rounded-xl shadow-xl overflow-hidden z-50">{sug.map((s) => <button key={s} className="block w-full text-left px-4 py-3 text-sm hover:bg-slate-50" onClick={() => go(s)}>{s}</button>)}</div>}
         </div>
         <div className="hidden md:flex items-center gap-2 shrink-0"><Link to="/seller/signup" className="px-3 py-2 rounded-xl border border-brand/20 bg-brand/5 text-brand text-sm font-extrabold">Sell on TideMart</Link></div><div className="flex items-center gap-1 sm:gap-2 shrink-0">
           <div className="relative" ref={menuBox}>

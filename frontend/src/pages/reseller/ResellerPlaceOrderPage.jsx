@@ -41,7 +41,7 @@ export default function ResellerPlaceOrderPage() {
       <input className={field} placeholder="Address" value={c.line1} onChange={set('line1')} />
       <div className="flex gap-2"><input className={field} placeholder="City" value={c.city} onChange={set('city')} /><input className={field} placeholder="State" value={c.state} onChange={set('state')} /><input className={field} placeholder="Pincode (try 560001)" value={c.pincode} onChange={set('pincode')} /></div>
       <select className={field} value={c.paymentMethod} onChange={set('paymentMethod')}><option value="COD">Cash on delivery</option><option value="UPI">UPI (demo)</option></select>
-      <button disabled={!lines.length} className="w-full bg-brand-accent text-white py-2 rounded-lg font-semibold disabled:opacity-40" onClick={submit}>Place order</button>
+      <button disabled={!(lines?.length > 0)} className="w-full bg-brand-accent text-white py-2 rounded-lg font-semibold disabled:opacity-40" onClick={submit}>Place order</button>
       {msg && <p className="mt-3 text-sm">{msg}</p>}
     </ResellerLayout>
   );
