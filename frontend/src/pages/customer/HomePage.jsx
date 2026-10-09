@@ -37,7 +37,7 @@ export default function HomePage() {
         </div>
       </section>
       <CategoryStrip categories={d.categories} />
-      {failed && <section className="max-w-7xl mx-auto px-4 lg:px-6 pt-4"><div className="rounded-2xl bg-amber-50 border border-amber-100 px-5 py-4 text-sm text-amber-800 flex justify-between gap-3"><span>Some products could not be loaded right now.</span><button onClick={() => window.location.reload()} className="font-bold underline">Retry</button></div></section>}
+      {failed && <section className="max-w-7xl mx-auto px-4 lg:px-6 pt-4"><div className="rounded-2xl bg-amber-50 border border-amber-100 px-5 py-4 text-sm text-amber-800 flex justify-between gap-3"><span>Backend server not connected. This is a frontend-only demo. Login and product features require a running backend.</span><button onClick={() => window.location.reload()} className="font-bold underline">Retry</button></div></section>}
       <PopularStores />
       <section className="max-w-7xl mx-auto px-4 lg:px-6 pb-4">
         <div className="flex items-end justify-between mb-4"><div><p className="text-xs uppercase tracking-[.18em] text-brand font-bold">Popular right now</p><h2 className="text-2xl font-extrabold text-slate-900 mt-1">Trending picks</h2></div><Link to="/search" className="text-sm font-bold text-brand">See all</Link></div>
